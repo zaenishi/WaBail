@@ -359,7 +359,7 @@ export const makeMessagesSocket = (config: SocketConfig) => {
 							if(groupData && Array.isArray(groupData?.participants)) {
 								logger.trace({ jid, participants: groupData.participants.length }, 'using cached group metadata')
 							
-								} else {
+								} else if(!isStatus) {
 								groupData = await groupMetadata(jid)
 							}
 
